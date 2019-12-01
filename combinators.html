@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Combinators</title>
+    <style>
+        #adjacent h2+p {
+            color: red;
+        }
+
+        #general h2~p {
+            color: red;
+        }
+
+        #child div>p {
+            color: red;
+        }
+
+        #descendant div p {
+            color: red
+        }
+
+        div h2,
+        div div,
+        div article,
+        h3,
+        p {
+            margin-left: 20px;
+        }
+
+        code span {
+            background-color: cadetblue;
+            color: white;
+            width: 250px;
+            font-size: 1.2em;
+        }
+
+        code div {
+            background-color: lightblue;
+            width: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <span>
+        <code>
+            <span>Adjacent Sibling : h2 + p { }</span>
+        
+        </code>
+        <code id="adjacent">
+            <div>&lt;div&gt;
+                <h2>&lt;h2&gt; Not applied&lt;/h2&gt;</h2>
+                <p> &lt;p&gt; CSS applied &lt;/p&gt; </p>
+                <h2>&lt;h2&gt; Not applied&lt;/h2&gt;</h2>
+                <h3>&lt;h3&gt; Not applied&lt;/h3&gt;</h3>
+                <p>&lt;p&gt; Not applied&lt;/p&gt;</p>
+                <h2>&lt;h2&gt; Not applied&lt;/h2&gt;</h2>
+                <p>&lt;p&gt; CSS applied&lt;/p&gt;</p>
+                &lt;/div&gt;
+            </div>
+        
+        </code>
+    </span>
+
+    <hr>
+    <span>
+        <code>
+           <span> General Sibling : h2 ~ p { }</span>
+        </code>
+        <code id="general">
+            <div>&lt;div&gt;
+                <h2>&lt;h2&gt;Not applied&lt;/h2&gt;</h2>
+                <p>&lt;p&gt; CSS applied&lt;/p&gt;</p>
+                <h2>&lt;h2&gt;Not applied&lt;/h2&gt;</h2>
+                <h3>&lt;h3&gt;Not applied&lt;/h3&gt;</h3>
+                <p>&lt;p&gt;CSS applied&lt;/p&gt;</p>
+                &lt;/div&gt;
+            </div>
+        </code>
+    </span>
+    <hr>
+
+    <span>
+        <code>
+            <span> Child : div > p { }</span>
+        </code>
+        <code id="child">
+            <div>&lt;div&gt;
+                <div>&lt;div&gt;Not applied&lt;/div&gt;</div>
+                <p>&lt;p&gt; CSS applied&lt;/p&gt;</p>
+                <div>&lt;div&gt;Not applied&lt;/div&gt;</div>
+                <article>&lt;article&gt;
+                    <p>&lt;p&gt;Not applied&lt;/p&gt;</p>
+                &lt;/article&gt;
+                </article>
+                <p>&lt;p&gt;CSS applied&lt;/p&gt;</p>
+                &lt;/div&gt;
+            </div>
+        </code>
+    </span>
+    <hr>
+    <span>
+        <code>
+            <span> Descendant : div p { }</span>
+        </code>
+        <code id="descendant">
+            <div>&lt;div&gt;
+                <div>&lt;div&gt;Not applied&lt;/div&gt;</div>
+                <p>&lt;p&gt; CSS applied&lt;/p&gt;</p>
+                <div>&lt;div&gt;Not applied&lt;/div&gt;</div>
+                <article>&lt;article&gt;
+                    <p>&lt;p&gt;CSS applied&lt;/p&gt;</p>
+                &lt;/article&gt;
+                </article>
+                <p>&lt;p&gt;CSS applied&lt;/p&gt;</p>
+                &lt;/div&gt;
+            </div>
+        </code>
+    </span>
+
+
+</body>
+
+</html>
